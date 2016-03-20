@@ -1,0 +1,4 @@
+bin
+obj
+/trunk/pgsqltest/packages
+*.suo
