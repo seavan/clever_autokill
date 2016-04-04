@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
+using System.Configuration;
 
 namespace clever_autokill
 {
@@ -72,8 +73,8 @@ namespace clever_autokill
         static void Main(string[] args)
         {
             var processKiller = new ProcessKiller();
-            processKiller.NameFilter = "*dev*";
-            processKiller.MaxMemory = 100;
+            processKiller.NameFilter = ConfigurationManager.AppSettings["NameFilter"];
+            processKiller.MaxMemory = int.Parse(ConfigurationManager.AppSettings["MaxMemory"]);
             processKiller.Execute();
         }
     } 
